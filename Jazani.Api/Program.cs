@@ -1,8 +1,6 @@
 ﻿using Jazani.Application.Admins.Dtos.AreaTypes.Profiles;
 using Jazani.Application.Admins.Services;
 using Jazani.Application.Admins.Services.Implementations;
-using Jazani.Domain.Admins.Repositories;
-using Jazani.Infrastructure.Admins.Persistences;
 using Jazani.Infrastructure.Cores.Contexts;
 
 
@@ -16,10 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Infrastructure
-builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
-// Domain - Infrastructure
-builder.Services.AddTransient<IAreaTypeRepository, AreaTypeRepository>();
 
 // Application
 builder.Services.AddTransient<IAreaTypeService, AreaTypeService>();
