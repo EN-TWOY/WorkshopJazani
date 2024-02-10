@@ -6,4 +6,32 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />
+    <ProjectReference Include="..\Jazani.Api\Jazani.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Admins\" />
+    <None Remove="Generals\" />
+    <None Remove="Admins\Configurations\" />
+    <None Remove="Admins\Persistences\" />
+    <None Remove="Generals\Persistences\" />
+    <None Remove="Generals\Configurations\" />
+    <None Remove="Cores\" />
+    <None Remove="Cores\Contexts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admins\" />
+    <Folder Include="Generals\" />
+    <Folder Include="Admins\Configurations\" />
+    <Folder Include="Admins\Persistences\" />
+    <Folder Include="Generals\Persistences\" />
+    <Folder Include="Generals\Configurations\" />
+    <Folder Include="Cores\" />
+    <Folder Include="Cores\Contexts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.15" />
+  </ItemGroup>
 </Project>
