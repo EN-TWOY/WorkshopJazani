@@ -1,8 +1,6 @@
-﻿using Jazani.Domain.Admins.Repositories;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Jazani.Infrastructure.Admins.Persistences;
 
 namespace Jazani.Infrastructure.Cores.Contexts
 {

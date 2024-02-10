@@ -25,6 +25,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(options =>
     {
         options.RegisterModule(new InfrastructureAutofactModule());
+        options.RegisterModule(new ApplicationAutofacModule());
     });
 
 

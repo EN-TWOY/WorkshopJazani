@@ -13,10 +13,6 @@ namespace Jazani.Application.Cores.Contexts
             // Automapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-
-            // Application
-            services.AddTransient<IAreaTypeService, AreaTypeService>();
-
             return services;
 		}
 
