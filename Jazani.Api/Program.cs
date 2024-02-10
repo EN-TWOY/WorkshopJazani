@@ -1,4 +1,9 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Jazani.Domain.Admins.Repositories;
+using Jazani.Infrastructure.Admins.Persistences;
+using Jazani.Infrastructure.Cores.Contexts;
+
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -6,6 +11,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Infrastructure
+builder.Services.AddDbContext<ApplicationDbContext>();
+
+// Domain - Infrastructure
+builder.Services.AddTransient<IAreaTypeRepository, AreaTypeRepository>();
+
 
 var app = builder.Build();
 

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />
-    <ProjectReference Include="..\Jazani.Api\Jazani.Api.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Admins\" />
