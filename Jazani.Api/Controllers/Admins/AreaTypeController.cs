@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Jazani.Domain.Admins.Models;
-using Jazani.Domain.Admins.Repositories;
+﻿using Jazani.Application.Admins.Dtos.AreaTypes;
+using Jazani.Application.Admins.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,26 +10,26 @@ namespace Jazani.Api.Controllers.Admins
     [Route("api/[controller]")]
     public class AreaTypeController : ControllerBase
     {
-        private readonly IAreaTypeRepository _areaTypeRepository;
+        private readonly IAreaTypeService _areaTypeService;
 
-        public AreaTypeController(IAreaTypeRepository areaTypeRepository)
+        public AreaTypeController(IAreaTypeService areaTypeService)
         {
-            _areaTypeRepository = areaTypeRepository;
+            _areaTypeService = areaTypeService;
         }
 
 
 
         [HttpGet]
-        public async Task<IEnumerable<AreaType>> Get()
+        public async Task<IEnumerable<AreaTypeSmallDto>> Get()
         {
-            return await _areaTypeRepository.FindAllAsync();
+            return await _areaTypeService.FindAllAsync();
         }
 
         
         [HttpGet("{id}")]
-        public async Task<AreaType> Get(int id)
+        public async Task<AreaTypeDto> Get(int id)
         {
-            return await _areaTypeRepository.FindByIdAsync(id);
+            return await _areaTypeService.FindByIdAsync(id);
         }
 
     }

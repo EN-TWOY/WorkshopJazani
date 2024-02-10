@@ -6,4 +6,32 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Admins\" />
+    <None Remove="Generals\" />
+    <None Remove="Admins\Dtos\" />
+    <None Remove="Admins\Services\" />
+    <None Remove="Generals\Dtos\" />
+    <None Remove="Generals\Services\" />
+    <None Remove="Admins\Dtos\AreaTypes\" />
+    <None Remove="Admins\Dtos\AreaTypes\Profiles\" />
+    <None Remove="Admins\Services\Implementations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admins\" />
+    <Folder Include="Generals\" />
+    <Folder Include="Admins\Dtos\" />
+    <Folder Include="Admins\Services\" />
+    <Folder Include="Generals\Dtos\" />
+    <Folder Include="Generals\Services\" />
+    <Folder Include="Admins\Dtos\AreaTypes\" />
+    <Folder Include="Admins\Dtos\AreaTypes\Profiles\" />
+    <Folder Include="Admins\Services\Implementations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />
+  </ItemGroup>
 </Project>
