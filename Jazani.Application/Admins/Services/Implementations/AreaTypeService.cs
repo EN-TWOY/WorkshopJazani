@@ -2,7 +2,7 @@
 using Jazani.Domain.Admins.Repositories;
 using Jazani.Application.Admins.Dtos.AreaTypes;
 using AutoMapper;
-using System.Collections.Generic;
+using Jazani.Application.Cores.Exceptions;
 
 namespace Jazani.Application.Admins.Services.Implementations
 {
@@ -36,7 +36,7 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             if(areaType is null)
             {
-                // hacer algo
+                throw AreaTypeNotFound(id);
             }
 
             _mapper.Map<AreaTypeSaveDto, AreaType>(saveDto, areaType);
@@ -54,7 +54,7 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             if (areaType is null)
             {
-                // hacer algo
+                throw AreaTypeNotFound(id);
             }
 
             areaType.State = false;
@@ -83,12 +83,18 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             if (areaType is null)
             {
-                // hacer algo
+                throw AreaTypeNotFound(id);
             }
 
             AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaType);
 
             return areaTypeDto;
+        }
+
+
+        private NotFoundCoreException AreaTypeNotFound(int id)
+        {
+            return new NotFoundCoreException("No se encontro un registro de Tipo de Area para el id: " + id);
         }
     }
 }

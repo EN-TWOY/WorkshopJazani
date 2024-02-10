@@ -25,6 +25,7 @@
     <None Remove="Cores\Contexts\" />
     <None Remove="Admins\Dtos\Areas\" />
     <None Remove="Admins\Dtos\Areas\Profiles\" />
+    <None Remove="Cores\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admins\" />
@@ -40,6 +41,7 @@
     <Folder Include="Cores\Contexts\" />
     <Folder Include="Admins\Dtos\Areas\" />
     <Folder Include="Admins\Dtos\Areas\Profiles\" />
+    <Folder Include="Cores\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />

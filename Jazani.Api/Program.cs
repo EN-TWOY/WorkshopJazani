@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Jazani.Api.Middlewares;
 using Jazani.Application.Cores.Contexts;
 using Jazani.Infrastructure.Cores.Contexts;
 using Serilog;
@@ -40,6 +41,9 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
         options.RegisterModule(new ApplicationAutofacModule());
     });
 
+// Api
+builder.Services.AddTransient<ExceptionMiddleware>();
+
 
 var app = builder.Build();
 
@@ -49,6 +53,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Middleware
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
