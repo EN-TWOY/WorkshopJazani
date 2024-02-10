@@ -19,6 +19,7 @@
     <None Remove="Cores\" />
     <None Remove="Cores\Contexts\" />
     <None Remove="Cores\Converters\" />
+    <None Remove="Cores\Persistences\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admins\" />
@@ -30,6 +31,7 @@
     <Folder Include="Cores\" />
     <Folder Include="Cores\Contexts\" />
     <Folder Include="Cores\Converters\" />
+    <Folder Include="Cores\Persistences\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.15" />
