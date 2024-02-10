@@ -6,14 +6,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jazani.Infrastructure.Admins.Persistences
 {
-	public class AreaTypeRepository : IAreaTypeRepository
+    public class AreaTypeRepository : IAreaTypeRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
-		public AreaTypeRepository(ApplicationDbContext dbContext)
-		{
+        public AreaTypeRepository(ApplicationDbContext dbContext)
+        {
             _dbContext = dbContext;
-		}
+        }
 
         public async Task<IReadOnlyList<AreaType>> FindAllAsync()
         {
@@ -25,9 +25,20 @@ namespace Jazani.Infrastructure.Admins.Persistences
             return await _dbContext.AreaTypes.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<AreaType> SaveAsync(AreaType areaType)
+        public async Task<AreaType> SaveAsync(AreaType areaType)
         {
-            throw new NotImplementedException();
+            EntityState entityState = _dbContext.Entry(areaType).State;
+
+            _ = entityState switch
+            {
+                EntityState.Detached => _dbContext.AreaTypes.Add(areaType),
+                EntityState.Modified => _dbContext.AreaTypes.Update(areaType)
+            };
+
+
+            await _dbContext.SaveChangesAsync();
+
+            return areaType;
         }
     }
 }

@@ -32,6 +32,24 @@ namespace Jazani.Api.Controllers.Admins
             return await _areaTypeService.FindByIdAsync(id);
         }
 
+        [HttpPost]
+        public async Task<AreaTypeDto> Post([FromBody] AreaTypeSaveDto saveDto)
+        {
+            return await _areaTypeService.CreateAsync(saveDto);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<AreaTypeDto> Put(int id, [FromBody] AreaTypeSaveDto saveDto)
+        {
+            return await _areaTypeService.EditAsync(id, saveDto);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<AreaTypeDto> Delete(int id)
+        {
+            return await _areaTypeService.DisabledAsync(id);
+        }
+
     }
 }
 

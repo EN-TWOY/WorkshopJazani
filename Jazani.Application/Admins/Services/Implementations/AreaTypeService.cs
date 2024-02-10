@@ -17,6 +17,56 @@ namespace Jazani.Application.Admins.Services.Implementations
             _mapper = mapper;
 		}
 
+        public async Task<AreaTypeDto> CreateAsync(AreaTypeSaveDto saveDto)
+        {
+            AreaType areaType = _mapper.Map<AreaType>(saveDto);
+            areaType.RegistrationDate = DateTime.Now;
+            areaType.State = true;
+
+            AreaType areaTypeSaved = await _areaTypeRepository.SaveAsync(areaType);
+
+            AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaTypeSaved);
+
+            return areaTypeDto;
+        }
+
+        public async Task<AreaTypeDto> EditAsync(int id, AreaTypeSaveDto saveDto)
+        {
+            AreaType? areaType = await _areaTypeRepository.FindByIdAsync(id);
+
+            if(areaType is null)
+            {
+                // hacer algo
+            }
+
+            _mapper.Map<AreaTypeSaveDto, AreaType>(saveDto, areaType);
+
+            AreaType areaTypeSaved = await _areaTypeRepository.SaveAsync(areaType);
+
+            AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaTypeSaved);
+
+            return areaTypeDto;
+        }
+
+        public async Task<AreaTypeDto> DisabledAsync(int id)
+        {
+            AreaType? areaType = await _areaTypeRepository.FindByIdAsync(id);
+
+            if (areaType is null)
+            {
+                // hacer algo
+            }
+
+            areaType.State = false;
+
+
+            AreaType areaTypeSaved = await _areaTypeRepository.SaveAsync(areaType);
+
+            AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaTypeSaved);
+
+            return areaTypeDto;
+        }
+
         public async Task<IReadOnlyList<AreaTypeSmallDto>> FindAllAsync()
         {
 
