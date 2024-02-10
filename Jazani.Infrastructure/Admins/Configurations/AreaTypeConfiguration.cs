@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Jazani.Domain.Admins.Models;
+using Jazani.Infrastructure.Cores.Converters;
 
 namespace Jazani.Infrastructure.Admins.Configurations
 {
@@ -14,10 +15,9 @@ namespace Jazani.Infrastructure.Admins.Configurations
 
             builder.Property(t => t.Name).HasColumnName("name");
             builder.Property(t => t.Description).HasColumnName("description");
+            builder.Property(t => t.RegistrationDate).HasColumnName("registrationdate")
+                .HasConversion(new DateTimeToDateTimeOffset());
             builder.Property(t => t.State).HasColumnName("state");
-
-
-            builder.Ignore(t => t.RegistrationDate);
         }
     }
 }
