@@ -10,6 +10,7 @@
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Admins\" />
@@ -26,6 +27,7 @@
     <None Remove="Admins\Dtos\Areas\" />
     <None Remove="Admins\Dtos\Areas\Profiles\" />
     <None Remove="Cores\Exceptions\" />
+    <None Remove="Admins\Dtos\AreaTypes\Validators\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admins\" />
@@ -42,6 +44,7 @@
     <Folder Include="Admins\Dtos\Areas\" />
     <Folder Include="Admins\Dtos\Areas\Profiles\" />
     <Folder Include="Cores\Exceptions\" />
+    <Folder Include="Admins\Dtos\AreaTypes\Validators\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />
