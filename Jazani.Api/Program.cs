@@ -1,6 +1,4 @@
-﻿using Jazani.Application.Admins.Dtos.AreaTypes.Profiles;
-using Jazani.Application.Admins.Services;
-using Jazani.Application.Admins.Services.Implementations;
+﻿using Jazani.Application.Cores.Contexts;
 using Jazani.Infrastructure.Cores.Contexts;
 
 
@@ -16,16 +14,8 @@ builder.Services.AddSwaggerGen();
 // Infrastructure
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-
 // Application
-builder.Services.AddTransient<IAreaTypeService, AreaTypeService>();
-
-
-// Automapper
-builder.Services.AddAutoMapper(config =>
-{
-    config.AddProfile<AreaTypeProfile>();
-});
+builder.Services.AddApplicationService();
 
 
 var app = builder.Build();

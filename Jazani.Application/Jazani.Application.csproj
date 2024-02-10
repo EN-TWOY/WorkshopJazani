@@ -19,6 +19,8 @@
     <None Remove="Admins\Dtos\AreaTypes\" />
     <None Remove="Admins\Dtos\AreaTypes\Profiles\" />
     <None Remove="Admins\Services\Implementations\" />
+    <None Remove="Cores\" />
+    <None Remove="Cores\Contexts\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admins\" />
@@ -30,6 +32,8 @@
     <Folder Include="Admins\Dtos\AreaTypes\" />
     <Folder Include="Admins\Dtos\AreaTypes\Profiles\" />
     <Folder Include="Admins\Services\Implementations\" />
+    <Folder Include="Cores\" />
+    <Folder Include="Cores\Contexts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />
