@@ -1,13 +1,10 @@
-﻿using System;
-using Jazani.Domain.Admins.Models;
+﻿using Jazani.Domain.Admins.Models;
+using Jazani.Domain.Cores.Repositories;
 
 namespace Jazani.Domain.Admins.Repositories
 {
-	public interface IAreaTypeRepository
-	{
-		Task<IReadOnlyList<AreaType>> FindAllAsync();
-		Task<AreaType?> FindByIdAsync(int id);
-		Task<AreaType> SaveAsync(AreaType areaType);
+	public interface IAreaTypeRepository : ICrudRepository<AreaType, int>
+    {
 	}
 }
 
