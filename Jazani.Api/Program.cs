@@ -2,9 +2,21 @@
 using Autofac.Extensions.DependencyInjection;
 using Jazani.Application.Cores.Contexts;
 using Jazani.Infrastructure.Cores.Contexts;
-
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = new LoggerConfiguration()
+    .WriteTo.Console(LogEventLevel.Information)
+    .WriteTo.File(
+        path: ".." + Path.DirectorySeparatorChar + "logapi.log",
+        restrictedToMinimumLevel: LogEventLevel.Warning,
+        rollingInterval: RollingInterval.Day
+    )
+    .CreateLogger();
+
+builder.Logging.AddSerilog(logger);
 
 // Add services to the container.
 

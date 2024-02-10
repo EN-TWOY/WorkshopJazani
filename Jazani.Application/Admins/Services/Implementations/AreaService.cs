@@ -2,6 +2,7 @@
 using Jazani.Application.Admins.Dtos.Areas;
 using Jazani.Domain.Admins.Models;
 using Jazani.Domain.Admins.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace Jazani.Application.Admins.Services.Implementations
 {
@@ -9,11 +10,13 @@ namespace Jazani.Application.Admins.Services.Implementations
     {
         private readonly IAreaRepository _areaRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<AreaService> _logger;
 
-        public AreaService(IAreaRepository areaRepository, IMapper mapper)
+        public AreaService(IAreaRepository areaRepository, IMapper mapper, ILogger<AreaService> logger)
         {
             _areaRepository = areaRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<AreaDto> CreateAsync(AreaSaveDto saveDto)
@@ -72,9 +75,12 @@ namespace Jazani.Application.Admins.Services.Implementations
         {
             var area = await _areaRepository.FindByIdAsync(id);
 
+            _logger.LogInformation("area:" + area?.Id);
+
             if (area is null)
             {
                 // hacer algo
+                _logger.LogWarning("[AreaService] - [FindByIdAsync]: No se encontro un registro de Area para el id: " + id);
             }
 
             return _mapper.Map<AreaDto>(area);
