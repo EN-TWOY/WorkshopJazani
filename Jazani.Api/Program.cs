@@ -28,13 +28,17 @@ builder.Logging.AddSerilog(logger);
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(new ValidationFilter());
-})
-    .ConfigureApiBehaviorOptions(options =>
+}).ConfigureApiBehaviorOptions(options =>
     {
         options.SuppressModelStateInvalidFilter = false;
 
     });
 
+//
+builder.Services.Configure<RouteOptions>(options =>
+{
+    options.LowercaseUrls = true;
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -60,9 +64,9 @@ builder.Services.AddTransient<ExceptionMiddleware>();
 
 
 // FluentValidation
-//builder.Services
-//    .AddFluentValidationRulesToSwagger()
-//    .AddFluentValidationRulesToSwagger();
+builder.Services
+    .AddFluentValidationRulesToSwagger()
+    .AddFluentValidationRulesToSwagger();
 
 
 var app = builder.Build();
