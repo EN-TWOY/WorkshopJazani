@@ -22,6 +22,8 @@
     <None Remove="Admins\Services\Implementations\" />
     <None Remove="Cores\" />
     <None Remove="Cores\Contexts\" />
+    <None Remove="Admins\Dtos\Areas\" />
+    <None Remove="Admins\Dtos\Areas\Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admins\" />
@@ -35,6 +37,8 @@
     <Folder Include="Admins\Services\Implementations\" />
     <Folder Include="Cores\" />
     <Folder Include="Cores\Contexts\" />
+    <Folder Include="Admins\Dtos\Areas\" />
+    <Folder Include="Admins\Dtos\Areas\Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jazani.Domain\Jazani.Domain.csproj" />
