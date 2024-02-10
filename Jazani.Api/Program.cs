@@ -1,4 +1,6 @@
-﻿using Jazani.Application.Cores.Contexts;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Jazani.Application.Cores.Contexts;
 using Jazani.Infrastructure.Cores.Contexts;
 
 
@@ -16,6 +18,14 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // Application
 builder.Services.AddApplicationService();
+
+
+//Autofact
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(options =>
+    {
+        options.RegisterModule(new InfrastructureAutofactModule());
+    });
 
 
 var app = builder.Build();

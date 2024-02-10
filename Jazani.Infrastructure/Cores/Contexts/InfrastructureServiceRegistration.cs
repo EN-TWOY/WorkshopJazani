@@ -15,11 +15,7 @@ namespace Jazani.Infrastructure.Cores.Contexts
 				options.UseSqlServer(configuration.GetConnectionString("DbConnection"));
 			});
 
-
-            // Domain - Infrastructure
-            services.AddTransient<IAreaTypeRepository, AreaTypeRepository>();
-
-
+			
             return services;
 		}
 	}
