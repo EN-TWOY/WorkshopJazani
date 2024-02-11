@@ -30,11 +30,11 @@ builder.Services.AddControllers(options =>
     options.Filters.Add(new ValidationFilter());
 }).ConfigureApiBehaviorOptions(options =>
     {
-        options.SuppressModelStateInvalidFilter = false;
+        options.SuppressModelStateInvalidFilter = true;
 
     });
 
-//
+// RouteOptions
 builder.Services.Configure<RouteOptions>(options =>
 {
     options.LowercaseUrls = true;
