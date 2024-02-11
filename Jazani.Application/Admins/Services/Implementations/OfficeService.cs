@@ -20,7 +20,8 @@ public class OfficeService : IOfficeService
 
     public async Task<IReadOnlyList<OfficeSmallDto>> FindAllAsync()
     {
-        var offices = await _officeRepository.FindAllAsync();
+        var offices = await _officeRepository
+            .FindAllAsync(predicate: x => x.State == true);
 
         return _mapper.Map<IReadOnlyList<OfficeSmallDto>>(offices);
     }

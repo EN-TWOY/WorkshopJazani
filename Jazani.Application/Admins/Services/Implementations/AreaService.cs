@@ -66,7 +66,8 @@ namespace Jazani.Application.Admins.Services.Implementations
 
         public async Task<IReadOnlyList<AreaSmallDto>> FindAllAsync()
         {
-            var areas = await _areaRepository.FindAllAsync();
+            var areas = await _areaRepository
+                .FindAllAsync(predicate: x => x.State == true);
 
             return _mapper.Map<IReadOnlyList<AreaSmallDto>>(areas);
         }
