@@ -24,8 +24,6 @@
   <ItemGroup>
     <Folder Include="Admins\" />
     <Folder Include="Generals\" />
-    <Folder Include="Admins\Configurations\" />
-    <Folder Include="Admins\Persistences\" />
     <Folder Include="Generals\Persistences\" />
     <Folder Include="Generals\Configurations\" />
     <Folder Include="Cores\" />

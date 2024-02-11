@@ -32,7 +32,6 @@
     <None Remove="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\Admins\" />
     <Folder Include="Controllers\Generals\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Middlewares\" />

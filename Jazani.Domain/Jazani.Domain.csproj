@@ -19,8 +19,6 @@
   <ItemGroup>
     <Folder Include="Admins\" />
     <Folder Include="Generals\" />
-    <Folder Include="Admins\Models\" />
-    <Folder Include="Admins\Repositories\" />
     <Folder Include="Generals\Models\" />
     <Folder Include="Generals\Repositories\" />
     <Folder Include="Cores\" />

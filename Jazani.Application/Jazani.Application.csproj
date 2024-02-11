@@ -32,13 +32,10 @@
   <ItemGroup>
     <Folder Include="Admins\" />
     <Folder Include="Generals\" />
-    <Folder Include="Admins\Dtos\" />
-    <Folder Include="Admins\Services\" />
     <Folder Include="Generals\Dtos\" />
     <Folder Include="Generals\Services\" />
     <Folder Include="Admins\Dtos\AreaTypes\" />
     <Folder Include="Admins\Dtos\AreaTypes\Profiles\" />
-    <Folder Include="Admins\Services\Implementations\" />
     <Folder Include="Cores\" />
     <Folder Include="Cores\Contexts\" />
     <Folder Include="Admins\Dtos\Areas\" />
