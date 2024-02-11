@@ -19,6 +19,11 @@ namespace Jazani.Infrastructure.Admins.Configurations
             builder.Property(t => t.RegistrationDate).HasColumnName("registrationdate")
                 .HasConversion(new DateTimeToDateTimeOffset());
             builder.Property(t => t.State).HasColumnName("state");
+
+            // Relations
+            builder.HasOne(a => a.AreaType) // Entidad/Model Area
+                .WithMany(at => at.Areas)   // Entida/Model AreaType
+                .HasForeignKey(a => a.AreaTypeId);
         }
     }
 }

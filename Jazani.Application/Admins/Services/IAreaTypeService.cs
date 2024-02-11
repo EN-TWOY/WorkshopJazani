@@ -9,11 +9,11 @@ namespace Jazani.Application.Admins.Services
 
 		Task<AreaTypeDto> FindByIdAsync(int id);
 
-		Task<AreaTypeDto> CreateAsync(AreaTypeSaveDto saveDto);
+		Task<AreaTypeSimpleDto> CreateAsync(AreaTypeSaveDto saveDto);
 
-		Task<AreaTypeDto> EditAsync(int id, AreaTypeSaveDto saveDto);
+		Task<AreaTypeSimpleDto> EditAsync(int id, AreaTypeSaveDto saveDto);
 
-		Task<AreaTypeDto> DisabledAsync(int id);
+		Task<AreaTypeSimpleDto> DisabledAsync(int id);
     }
 }
 

@@ -8,11 +8,11 @@ namespace Jazani.Application.Admins.Services
 
         Task<AreaDto> FindByIdAsync(int id);
 
-        Task<AreaDto> CreateAsync(AreaSaveDto saveDto);
+        Task<AreaSimpleDto> CreateAsync(AreaSaveDto saveDto);
 
-        Task<AreaDto> EditAsync(int id, AreaSaveDto saveDto);
+        Task<AreaSimpleDto> EditAsync(int id, AreaSaveDto saveDto);
 
-        Task<AreaDto> DisabledAsync(int id);
+        Task<AreaSimpleDto> DisabledAsync(int id);
     }
 }
 

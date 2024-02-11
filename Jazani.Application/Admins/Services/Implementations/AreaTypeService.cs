@@ -17,7 +17,7 @@ namespace Jazani.Application.Admins.Services.Implementations
             _mapper = mapper;
 		}
 
-        public async Task<AreaTypeDto> CreateAsync(AreaTypeSaveDto saveDto)
+        public async Task<AreaTypeSimpleDto> CreateAsync(AreaTypeSaveDto saveDto)
         {
             AreaType areaType = _mapper.Map<AreaType>(saveDto);
             areaType.RegistrationDate = DateTime.Now;
@@ -25,12 +25,12 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             AreaType areaTypeSaved = await _areaTypeRepository.SaveAsync(areaType);
 
-            AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaTypeSaved);
+            AreaTypeSimpleDto areaTypeDto = _mapper.Map<AreaTypeSimpleDto>(areaTypeSaved);
 
             return areaTypeDto;
         }
 
-        public async Task<AreaTypeDto> EditAsync(int id, AreaTypeSaveDto saveDto)
+        public async Task<AreaTypeSimpleDto> EditAsync(int id, AreaTypeSaveDto saveDto)
         {
             AreaType? areaType = await _areaTypeRepository.FindByIdAsync(id);
 
@@ -43,12 +43,12 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             AreaType areaTypeSaved = await _areaTypeRepository.SaveAsync(areaType);
 
-            AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaTypeSaved);
+            AreaTypeSimpleDto areaTypeDto = _mapper.Map<AreaTypeSimpleDto>(areaTypeSaved);
 
             return areaTypeDto;
         }
 
-        public async Task<AreaTypeDto> DisabledAsync(int id)
+        public async Task<AreaTypeSimpleDto> DisabledAsync(int id)
         {
             AreaType? areaType = await _areaTypeRepository.FindByIdAsync(id);
 
@@ -62,7 +62,7 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             AreaType areaTypeSaved = await _areaTypeRepository.SaveAsync(areaType);
 
-            AreaTypeDto areaTypeDto = _mapper.Map<AreaTypeDto>(areaTypeSaved);
+            AreaTypeSimpleDto areaTypeDto = _mapper.Map<AreaTypeSimpleDto>(areaTypeSaved);
 
             return areaTypeDto;
         }

@@ -8,6 +8,9 @@
         public string? Description { get; set; }
         public DateTime RegistrationDate { get; set; }
         public bool State { get; set; }
+
+        // Relations
+        public virtual AreaType AreaType { get; set; }
     }
 }
 

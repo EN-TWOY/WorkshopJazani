@@ -4,11 +4,9 @@ using Jazani.Api.Filters;
 using Jazani.Api.Middlewares;
 using Jazani.Application.Cores.Contexts;
 using Jazani.Infrastructure.Cores.Contexts;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Serilog;
 using Serilog.Events;
-using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
-using FluentValidation.AspNetCore;
-using Jazani.Application.Admins.Dtos.AreaTypes.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 

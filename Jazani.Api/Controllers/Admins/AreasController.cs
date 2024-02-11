@@ -37,9 +37,9 @@ namespace Jazani.Api.Controllers.Admins
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(AreaDto))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(AreaSimpleDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorValidationResponse))]
-        public async Task<Results<BadRequest, CreatedAtRoute<AreaDto>>> Post([FromBody] AreaSaveDto saveDto)
+        public async Task<Results<BadRequest, CreatedAtRoute<AreaSimpleDto>>> Post([FromBody] AreaSaveDto saveDto)
         {
             var response = await _areaService.CreateAsync(saveDto);
 
@@ -47,10 +47,10 @@ namespace Jazani.Api.Controllers.Admins
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaSimpleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorValidationResponse))]
-        public async Task<Results<NotFound, BadRequest, Ok<AreaDto>>> Put(int id, [FromBody] AreaSaveDto saveDto)
+        public async Task<Results<NotFound, BadRequest, Ok<AreaSimpleDto>>> Put(int id, [FromBody] AreaSaveDto saveDto)
         {
             var response = await _areaService.EditAsync(id, saveDto);
 
@@ -58,9 +58,9 @@ namespace Jazani.Api.Controllers.Admins
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaSimpleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorModel))]
-        public async Task<Results<NotFound, Ok<AreaDto>>> Delete(int id)
+        public async Task<Results<NotFound, Ok<AreaSimpleDto>>> Delete(int id)
         {
             var response = await _areaService.DisabledAsync(id);
 

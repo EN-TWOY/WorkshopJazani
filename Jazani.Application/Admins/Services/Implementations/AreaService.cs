@@ -19,7 +19,7 @@ namespace Jazani.Application.Admins.Services.Implementations
             _logger = logger;
         }
 
-        public async Task<AreaDto> CreateAsync(AreaSaveDto saveDto)
+        public async Task<AreaSimpleDto> CreateAsync(AreaSaveDto saveDto)
         {
             var area = _mapper.Map<Area>(saveDto);
 
@@ -29,10 +29,10 @@ namespace Jazani.Application.Admins.Services.Implementations
             await _areaRepository.SaveAsync(area);
 
 
-            return _mapper.Map<AreaDto>(area);
+            return _mapper.Map<AreaSimpleDto>(area);
         }
 
-        public async Task<AreaDto> EditAsync(int id, AreaSaveDto saveDto)
+        public async Task<AreaSimpleDto> EditAsync(int id, AreaSaveDto saveDto)
         {
             var area = await _areaRepository.FindByIdAsync(id);
 
@@ -45,10 +45,10 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             await _areaRepository.SaveAsync(area);
 
-            return _mapper.Map<AreaDto>(area);
+            return _mapper.Map<AreaSimpleDto>(area);
         }
 
-        public async Task<AreaDto> DisabledAsync(int id)
+        public async Task<AreaSimpleDto> DisabledAsync(int id)
         {
             var area = await _areaRepository.FindByIdAsync(id);
 
@@ -61,7 +61,7 @@ namespace Jazani.Application.Admins.Services.Implementations
 
             await _areaRepository.SaveAsync(area);
 
-            return _mapper.Map<AreaDto>(area);
+            return _mapper.Map<AreaSimpleDto>(area);
         }
 
         public async Task<IReadOnlyList<AreaSmallDto>> FindAllAsync()

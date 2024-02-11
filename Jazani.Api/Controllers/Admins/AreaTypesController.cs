@@ -39,9 +39,9 @@ namespace Jazani.Api.Controllers.Admins
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(AreaTypeDto))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(AreaTypeSimpleDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorValidationResponse))]
-        public async Task<Results<BadRequest, CreatedAtRoute<AreaTypeDto>>> Post([FromBody] AreaTypeSaveDto saveDto)
+        public async Task<Results<BadRequest, CreatedAtRoute<AreaTypeSimpleDto>>> Post([FromBody] AreaTypeSaveDto saveDto)
         {
             var response = await _areaTypeService.CreateAsync(saveDto);
 
@@ -49,10 +49,10 @@ namespace Jazani.Api.Controllers.Admins
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaTypeDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaTypeSimpleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorValidationResponse))]
-        public async Task<Results<NotFound, BadRequest, Ok<AreaTypeDto>>> Put(int id, [FromBody] AreaTypeSaveDto saveDto)
+        public async Task<Results<NotFound, BadRequest, Ok<AreaTypeSimpleDto>>> Put(int id, [FromBody] AreaTypeSaveDto saveDto)
         {
             var response = await _areaTypeService.EditAsync(id, saveDto);
 
@@ -60,9 +60,9 @@ namespace Jazani.Api.Controllers.Admins
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaTypeDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AreaTypeSimpleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorModel))]
-        public async Task<Results<NotFound, Ok<AreaTypeDto>>> Delete(int id)
+        public async Task<Results<NotFound, Ok<AreaTypeSimpleDto>>> Delete(int id)
         {
             var response = await _areaTypeService.DisabledAsync(id);
 
