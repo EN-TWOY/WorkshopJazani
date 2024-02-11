@@ -10,6 +10,7 @@ namespace Jazani.Application.Admins.Dtos.Areas.Profiles
 			CreateMap<Area, AreaDto>();
 			CreateMap<Area, AreaSmallDto>();
 			CreateMap<Area, AreaSimpleDto>();
+			CreateMap<Area, AreaMediumDto>();
 
 			CreateMap<Area, AreaSaveDto>().ReverseMap();
 		}

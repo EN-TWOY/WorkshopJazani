@@ -36,9 +36,7 @@
     <Folder Include="Generals\Services\" />
     <Folder Include="Admins\Dtos\AreaTypes\" />
     <Folder Include="Admins\Dtos\AreaTypes\Profiles\" />
-    <Folder Include="Cores\" />
     <Folder Include="Cores\Contexts\" />
-    <Folder Include="Admins\Dtos\Areas\" />
     <Folder Include="Admins\Dtos\Areas\Profiles\" />
     <Folder Include="Cores\Exceptions\" />
     <Folder Include="Admins\Dtos\AreaTypes\Validators\" />

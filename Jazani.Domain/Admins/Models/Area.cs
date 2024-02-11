@@ -11,6 +11,7 @@
 
         // Relations
         public virtual AreaType AreaType { get; set; }
+        public virtual ICollection<Management> Managements { get; set; }
     }
 }
 

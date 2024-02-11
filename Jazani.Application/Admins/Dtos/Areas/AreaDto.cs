@@ -11,7 +11,7 @@ namespace Jazani.Application.Admins.Dtos.Areas
         public bool State { get; set; }
 
         // Relations
-        public virtual AreaTypeSmallDto AreaType { get; set; }
+        public virtual AreaTypeSmallDto? AreaType { get; set; }
     }
 }
 

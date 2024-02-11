@@ -7,4 +7,7 @@ public class Office
     public string? Description { get; set; }
     public DateTime RegistrationDate { get; set; }
     public bool State { get; set; }
+    
+    // Relations
+    public virtual ICollection<Management> Managements { get; set; }
 }
